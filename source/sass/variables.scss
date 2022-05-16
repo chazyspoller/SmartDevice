@@ -1,0 +1,44 @@
+// Colors
+// ---------------------------------
+
+// Default
+
+$color-default-black:               #000000;
+$color-default-white:               #ffffff;
+$color-transparent:                 rgba(255, 255, 255, 0);
+
+// Project palette
+// для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+
+
+// Gradient
+
+$black-to-right:                    linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+$blue-to-transporent:               linear-gradient(180deg, rgba(1, 28, 64, 0) 50%, $color-dark-blue 100%);
+
+// Typography
+// ---------------------------------
+
+// переменная используемая в html для подключения скейлинга
+$fz-default:                        16px;
+$ff-default:                        "PT Mono", "Arial", sans-serif;
+$ff-titles:                         "Roboto Condensed", "Arial", sans-serif;
+
+// Viewports
+// ---------------------------------
+
+$vp-320:                            320px;
+$vp-770:                            770px;
+$vp-1024:                           1024px;
+
+// Retina
+// ---------------------------------
+
+$retina-dpi:                        144dpi;
+$retina-dppx:                       1.5dppx;
+
+// Paddings
+// ---------------------------------
+$desktop-padding:                   350/1920 * 100%;
+$tablet-padding:                    50/770 * 100%;
+$mobile-padding:                    25/320 * 100%;

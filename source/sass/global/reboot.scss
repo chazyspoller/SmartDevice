@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+html {
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fz-default;
+  line-height: 24px;
+  font-family: $ff-default;
+  color: $color-dark-blue;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // оптимизация выравнивания шрифта относительно центра строки
+  text-rendering: optimizeLegibility;
+  // если по прежнему есть проблемы с выравниванием
+  // https://transfonter.org/ - включите настройку https://prnt.sc/12rnt6g и переконвертируйте шрифт
+}
+
+body {
+  width: 100%;
+  height: 100%;
+
+  background-color: $color-default-white;
+}
+
+a {
+  color: $color-default-black;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

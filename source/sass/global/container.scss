@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 $desktop-padding;
+
+  @include vp-1024 {
+    padding: 0 $tablet-padding;
+  }
+
+  @include vp-770 {
+    padding: 0 $mobile-padding;
+  }
+}
