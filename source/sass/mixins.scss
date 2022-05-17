@@ -24,6 +24,12 @@
   }
 }
 
+@mixin vp-1350 {
+  @media (max-width: $vp-1350 - 1) {
+    @content;
+  }
+}
+
 @mixin reset-margins {
   margin: 0;
   padding: 0;

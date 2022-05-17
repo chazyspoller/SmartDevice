@@ -1,0 +1,121 @@
+.footer-links {
+  @include reset-margins;
+  list-style: none;
+
+  p {
+    @include reset-margins;
+    font: 400 0.94em/1em $ff-titles;
+    letter-spacing: 5%;
+    color: $color-default-white;
+    text-transform: uppercase;
+    padding: 0 0 20px 0;
+    position: relative;
+
+    @include vp-768 {
+      padding: 20px 0;
+      cursor: pointer;
+      user-select: none;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 26px;
+        right: 0;
+        width: 15px;
+        height: 1px;
+        background-color: $color-light-svg;
+        transition: transform 0.3s ease 0s;
+      }
+    }
+  }
+
+  @include vp-768 {
+    &--inactive {
+      p {
+        &::after {
+          transform: rotate(90deg);
+        }
+      }
+
+      ul {
+        max-height: 0;
+        overflow: hidden;
+        margin-bottom: 0;
+      }
+    }
+
+    &--active {
+      p {
+        &::after {
+          transform: rotate(0deg);
+        }
+      }
+
+      ul {
+        max-height: 1000px;
+      }
+    }
+  }
+}
+
+.footer-links__links {
+  @include reset-margins;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, min-content);
+  gap: 10px 30px;
+  grid-auto-flow: column;
+
+  @include vp-1024 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  @include vp-768 {
+    transition: max-height 0.3s ease 0s;
+    margin-bottom: 20px;
+  }
+
+  li {
+    opacity: 0.7;
+  }
+
+  a {
+    font: 400 1em/1.2em $ff-default;
+    color: $color-default-white;
+    position: relative;
+
+    @media (hover: hover), screen and (min-width: $vp-1024) {
+      &:hover,
+      &:focus {
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          border: 2px solid $color-light-blue;
+        }
+
+        &::after {
+          left: -18px;
+        }
+
+        &::before {
+          right: -18px;
+        }
+      }
+    }
+
+    &:active {
+      color: $color-light-blue;
+    }
+  }
+}

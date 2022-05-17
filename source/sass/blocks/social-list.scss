@@ -1,0 +1,33 @@
+.social-list {
+  @include reset-margins;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 15px;
+  gap: 0 25px;
+
+  @include vp-1024 {
+    padding: 0;
+    justify-content: flex-end;
+  }
+}
+
+.social-list__link {
+  @media (hover: hover), screen and (min-width: $vp-1024) {
+    &:hover,
+    &:focus {
+      outline: none;
+      opacity: 0.6;
+    }
+  }
+
+  svg {
+    fill: $color-light-svg;
+  }
+
+  &:active svg {
+    fill: $color-light-blue;
+  }
+}

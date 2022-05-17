@@ -4,6 +4,10 @@
   margin: 0 auto;
   padding: 0 $desktop-padding;
 
+  @include vp-1350 {
+    padding: 0 $predesktop-padding;
+  }
+
   @include vp-1024 {
     padding: 0 $tablet-padding;
   }

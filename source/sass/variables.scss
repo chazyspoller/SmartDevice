@@ -14,7 +14,8 @@ $color-error:                       #ff0000;
 $color-light:                       #f2f5f6;
 $color-overlay:                     rgba(3, 16, 27, 0.7);
 $color-dark-blue:                   #041827;
-$color-light-blue:                  #00B2FF;
+$color-light-blue:                  #00b2ff;
+$color-light-svg:                   #f8fdff;
 
 // Gradient
 
@@ -35,6 +36,7 @@ $ff-titles:                         "Roboto Condensed", "Arial", sans-serif;
 $vp-320:                            320px;
 $vp-768:                            768px;
 $vp-1024:                           1024px;
+$vp-1350:                           1350px;
 
 // Retina
 // ---------------------------------
@@ -45,5 +47,6 @@ $retina-dppx:                       1.5dppx;
 // Paddings
 // ---------------------------------
 $desktop-padding:                   350/1920 * 100%;
+$predesktop-padding:                50/1350 * 100%;
 $tablet-padding:                    50/768 * 100%;
-$mobile-padding:                    25/320 * 100%;
+$mobile-padding:                    25px;
