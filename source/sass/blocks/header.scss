@@ -1,0 +1,114 @@
+.header {
+  background: $blue-to-transporent;
+  position: fixed;
+  width: 100%;
+  padding: 30px 0 35px;
+
+  @include vp-1024 {
+    padding: 20px 0 25px;
+  }
+
+  @include vp-768 {
+    padding: 15px 10px 20px 0;
+  }
+}
+
+.header__main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header__logo {
+  img {
+    width: 215px;
+    height: 55px;
+
+    @include vp-768 {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+
+.header__menu {
+  @include reset-margins;
+  list-style: none;
+  flex: 0 0 43%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 5px;
+
+  @include vp-1024 {
+    flex: 0 0 70%;
+    justify-content: flex-end;
+  }
+
+  @include vp-768 {
+    margin-top: -5px;
+    flex: 0 0 80%;
+  }
+}
+
+.header__link {
+  &:not(:first-of-type) {
+    @include vp-1024 {
+      margin-left: 20px;
+    }
+  }
+
+  a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: $color-light;
+    font: 400 1em/1em $ff-default;
+  }
+
+  span {
+    @include vp-1024 {
+      display: none;
+    }
+  }
+
+  @media (hover: hover), screen and (min-width: $vp-1024) {
+    &:hover span,
+    &:focus span {
+      color: $color-light-blue;
+    }
+  }
+
+  &:active svg {
+    stroke: $color-light;
+  }
+}
+
+.header__open-popup {
+  display: block;
+  margin-top: 5px;
+  padding: 12px 15px;
+  color: $color-light;
+  text-transform: uppercase;
+  border: 1px solid $color-light;
+  border-radius: 3px;
+  font: 700 0.88em/1em $ff-titles;
+  letter-spacing: 5%;
+  transition: transform 0.3s ease 0s;
+
+  @include vp-1024 {
+    display: none;
+  }
+
+  @media (hover: hover), screen and (min-width: $vp-1024) {
+    &:hover,
+    &:focus {
+      color: $color-dark-blue;
+      background-color: $color-light;
+    }
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

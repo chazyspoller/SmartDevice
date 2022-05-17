@@ -6,15 +6,20 @@
 $color-default-black:               #000000;
 $color-default-white:               #ffffff;
 $color-transparent:                 rgba(255, 255, 255, 0);
+$color-error:                       #ff0000;
 
 // Project palette
 // для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
 
+$color-light:                       #f2f5f6;
+$color-overlay:                     rgba(3, 16, 27, 0.7);
+$color-dark-blue:                   #041827;
+$color-light-blue:                  #00B2FF;
 
 // Gradient
 
 $black-to-right:                    linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
-$blue-to-transporent:               linear-gradient(180deg, rgba(1, 28, 64, 0) 50%, $color-dark-blue 100%);
+$blue-to-transporent:               linear-gradient(180deg, rgba(4, 24, 39, 1) 84.9%, rgba(4, 24, 39, 0) 100%);
 
 // Typography
 // ---------------------------------
@@ -28,7 +33,7 @@ $ff-titles:                         "Roboto Condensed", "Arial", sans-serif;
 // ---------------------------------
 
 $vp-320:                            320px;
-$vp-770:                            770px;
+$vp-768:                            768px;
 $vp-1024:                           1024px;
 
 // Retina
@@ -40,5 +45,5 @@ $retina-dppx:                       1.5dppx;
 // Paddings
 // ---------------------------------
 $desktop-padding:                   350/1920 * 100%;
-$tablet-padding:                    50/770 * 100%;
+$tablet-padding:                    50/768 * 100%;
 $mobile-padding:                    25/320 * 100%;

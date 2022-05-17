@@ -33,7 +33,7 @@ body {
 }
 
 .scroll-lock-ios {
-  @include vp-767 {
+  @include vp-768 {
     position: fixed;
 
     overflow: hidden;
@@ -41,7 +41,7 @@ body {
 }
 
 .scroll-lock {
-  @include vp-767 {
+  @include vp-768 {
     overflow: hidden;
   }
 }
@@ -64,9 +64,9 @@ body {
 }
 
 .overlay {
-  @include vp-767 {
+  @include vp-768 {
     &::before {
-      content: '';
+      content: "";
       display: block;
       position: fixed;
       top: 0;
