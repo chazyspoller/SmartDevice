@@ -1,0 +1,132 @@
+.intro {
+  padding: 120px + 185px 125px 80px;
+  min-height: 880px;
+  background: $color-overlay url("../img/intro-bg.jpg") center center no-repeat;
+  background-size: cover;
+  position: relative;
+
+  @include retinaD {
+    background-image: url("../img/intro-bg@2x.jpg");
+  }
+
+  @include vp-1024 {
+    padding: 100px + 80px 0 80px;
+    min-height: 640px;
+    background-image: url("../img/intro-bg-tablet.jpg");
+
+    @include retina {
+      background-image: url("../img/intro-bg-tablet@2x.jpg");
+    }
+  }
+
+  @include vp-768 {
+    padding: 70px + 80px 0 80px;
+    min-height: 560px;
+    background-image: url("../img/intro-bg-mobile.jpg");
+
+    @include retina {
+      background-image: url("../img/intro-bg-mobile@2x.jpg");
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $color-intro-bg;
+  }
+
+  h2 {
+    @include reset-margins;
+    position: relative;
+    z-index: 1;
+    font: 700 5em/1.2em $ff-titles;
+    letter-spacing: 7%;
+    text-transform: uppercase;
+    color: $color-light;
+    margin-bottom: 60px;
+
+    @include vp-1024 {
+      font: 700 4em/1.2em $ff-titles;
+      margin-bottom: 20px;
+    }
+
+    @include vp-768 {
+      font: 700 2.25em/1.2em $ff-titles;
+    }
+  }
+
+  p {
+    @include reset-margins;
+    padding-right: 30%;
+    position: relative;
+    z-index: 1;
+    font: 400 1.38em/1.2em $ff-default;
+    color: $color-light;
+    margin-bottom: 60px;
+
+    @include vp-1024 {
+      padding-right: 0;
+      margin-bottom: 70px;
+    }
+
+    @include vp-768 {
+      font: 400 0.88em/1.2em $ff-default;
+    }
+  }
+}
+
+.intro__link {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 15px 25px;
+  font: 700 1.13em/1.2em $ff-titles;
+  letter-spacing: 5%;
+  text-transform: uppercase;
+  color: $color-light;
+  background-color: $color-light-blue;
+  border-radius: 3px;
+  user-select: none;
+  transition: all 0.3s ease 0s;
+
+  span:last-of-type {
+    display: none;
+  }
+
+  @include vp-1024 {
+    margin-left: 45px;
+  }
+
+  @include vp-768 {
+    margin-left: 0;
+    padding: 10px;
+    width: 100%;
+    font: 700 0.88em/1.2em $ff-titles;
+    text-align: center;
+
+    span:first-of-type {
+      display: none;
+    }
+
+    span:last-of-type {
+      display: inherit;
+    }
+  }
+
+  @media (hover: hover), screen and (min-width: $vp-1024) {
+    &:hover,
+    &:focus {
+      color: $color-dark-blue;
+      background-color: $color-light;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
