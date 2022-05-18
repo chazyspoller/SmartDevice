@@ -1,0 +1,142 @@
+.questions {
+  padding: 170px 0 250px;
+  position: relative;
+  background: url("../img/paper-airplane.png") calc(46% - 298px) center no-repeat, url("../img/svg/mask.svg") 0 0 no-repeat;
+  background-size: auto, contain;
+  background-color: $color-light-blue;
+
+  @include retinaD {
+    background-image: url("../img/paper-airplane@2x.png"), url("../img/svg/mask.svg");
+    background-size: 511px 285px, contain;
+  }
+
+  @include vp-1350 {
+    background-position: calc(40% - 298px) center, 0 0;
+  }
+
+  @include vp-1024 {
+    padding: 50px 0 125px;
+    background-image: none;
+  }
+
+  @include vp-768 {
+    padding: 50px 0 90px;
+  }
+}
+
+.questions__wrapper {
+  padding: 0 0 0 50%;
+
+  @include vp-1350 {
+    padding: 0 0 0 45%;
+  }
+
+  @include vp-1024 {
+    padding: 0;
+  }
+
+  p {
+    &:first-of-type {
+      font: 400 2.25em/1.2em $ff-titles;
+      margin-bottom: 15px;
+
+      @include vp-1024 {
+        margin-bottom: 10px;
+      }
+
+      @include vp-768 {
+        font: 400 1.88em/1.2em $ff-titles;
+        margin-bottom: 20px;
+      }
+    }
+
+    font: 400 1em/1.2em $ff-default;
+    color: $color-default-white;
+    margin-bottom: 35px;
+
+    @include vp-1024 {
+      margin-bottom: 25px;
+    }
+
+    @include vp-768 {
+      font: 400 0.88em/1.2em $ff-default;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.questions__form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 30px;
+  align-items: flex-end;
+
+  @include vp-768 {
+    grid-template-columns: 1fr;
+  }
+
+  input:not([type="checkbox"]) {
+    padding: 15px;
+  }
+
+  textarea {
+    padding: 25px 15px;
+    resize: none;
+    height: 155px;
+    grid-column-start: 1;
+    grid-column-end: -1;
+  }
+
+  input:not([type="checkbox"]),
+  textarea {
+    width: 100%;
+    border-radius: 3px;
+    background-color: rgba($color-blue-form, 0.15);
+    border: none;
+    font: 400 1em/1.2em $ff-default;
+    color: $color-default-white;
+
+    @media (hover: hover), screen and (min-width: $vp-1024) {
+      &:hover {
+        outline: 1px solid $color-blue-form;
+      }
+    }
+
+    &:focus {
+      outline: 1px solid $color-default-white;
+    }
+  }
+
+  button {
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+    padding: 15px 25px;
+    width: 265px;
+    background-color: $color-blue-form;
+    font: 700 1em/1.2em $ff-titles;
+    color: $color-default-white;
+    text-transform: uppercase;
+    letter-spacing: 5%;
+    border-radius: 3px;
+    transition: color 0.3s ease 0s, background-color 0.3s ease 0s, transform 0.3s ease 0s;
+
+    @include vp-768 {
+      width: 100%;
+    }
+
+    @media (hover: hover), screen and (min-width: $vp-1024) {
+      &:hover,
+      &:focus {
+        outline: none;
+        background-color: $color-default-white;
+        color: $color-blue-form;
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+

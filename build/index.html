@@ -34,16 +34,16 @@
           </picture>
         </a>
         <ul class="header__menu">
-          <li class="header__link">
-            <a href="mailto:info@sd.ru">
+          <li class="header__link-item">
+            <a class="header__link" href="mailto:info@sd.ru">
               <svg width="40" height="40">
                 <use xlink:href="img/sprite_auto.svg#icon-email"></use>
               </svg>
               <span>info@sd.ru</span>
             </a>
           </li>
-          <li class="header__link">
-            <a href="tel:84950005252">
+          <li class="header__link-item">
+            <a class="header__link" href="tel:84950005252">
               <svg width="40" height="40">
                 <use xlink:href="img/sprite_auto.svg#icon-phone"></use>
               </svg>
@@ -142,7 +142,7 @@
           <li class="services__item">
             <a href="" class="services__link">
               <h3>Производство печатных плат</h3>
-              <button></button>
+              <div></div>
               <picture>
                 <source type="image/webp" media="(max-width: 767px)"
                   srcset="img/content/card-bg-1-mobile.webp 1x, img/content/card-bg-1-mobile@2x.webp 2x">
@@ -166,7 +166,7 @@
           <li class="services__item">
             <a href=""  class="services__link">
               <h3>Монтаж печатных плат</h3>
-              <button></button>
+              <div></div>
               <picture>
                 <source type="image/webp" media="(max-width: 767px)"
                   srcset="img/content/card-bg-2-mobile.webp 1x, img/content/card-bg-2-mobile@2x.webp 2x">
@@ -190,7 +190,7 @@
           <li class="services__item">
             <a href=""  class="services__link">
               <h3>Комплектующие для светотехники</h3>
-              <button></button>
+              <div></div>
               <picture>
                 <source type="image/webp" media="(max-width: 767px)"
                   srcset="img/content/card-bg-3-mobile.webp 1x, img/content/card-bg-3-mobile@2x.webp 2x">
@@ -212,6 +212,35 @@
             </a>
           </li>
         </ul>
+      </div>
+    </section>
+    <section class="questions" id="call">
+      <div class="container">
+        <h2 class="visually-hidden">Форма для связи и вопросов</h2>
+        <div class="questions__wrapper">
+          <p>Остались вопросы? Задайте их нам!</p>
+          <p>Мы проконсультируем Вас бесплатно</p>
+          <form class="questions__form" action="#" method="GET">
+            <input type="text" name="user-name" id="user-name" placeholder="Имя" required>
+            <label class="visually-hidden" for="user-name">Имя</label>
+
+            <input type="tel" name="user-phone" id="user-phone" placeholder="Телефон" minLength="18" data-phone-pattern required>
+            <label class=" visually-hidden" for="user-phone">Телефон</label>
+
+            <textarea name="user-question" id="user-question" placeholder="Ваш вопрос"></textarea>
+            <label class="visually-hidden" for="user-question">Ваш вопрос</label>
+
+            <div class="checkbox">
+              <input type="checkbox" name="personal-data" id="personal-data"
+                aria-label="Согласие на обработку персональных данных" required>
+              <label for="personal-data">
+                Я согласен на обработку персональных данных
+              </label>
+            </div>
+
+            <button type="submit">Задать вопрос</button>
+          </form>
+        </div>
       </div>
     </section>
   </main>

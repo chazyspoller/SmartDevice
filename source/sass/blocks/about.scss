@@ -105,6 +105,7 @@
   @media (hover: hover), screen and (min-width: $vp-1024) {
     &:hover,
     &:focus {
+      outline: none;
       color: $color-light;
       background-color:  $color-light-blue;
     }

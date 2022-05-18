@@ -3,6 +3,8 @@ import {initModals} from './modules/modals/init-modals';
 import './modules/modals/footer-links';
 import './modules/modals/advantages';
 import './modules/modals/about-more';
+import './modules/modals/link-scroll';
+import './modules/modals/question-form';
 
 // ---------------------------------
 

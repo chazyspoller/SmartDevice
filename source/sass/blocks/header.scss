@@ -54,24 +54,23 @@
 }
 
 .header__link {
-  a {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: $color-light;
-    font: 400 1em/1em $ff-default;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: $color-light;
+  font: 400 1em/1em $ff-default;
+
+  @media (hover: hover), screen and (min-width: $vp-1024) {
+    &:hover,
+    &:focus {
+      outline: none;
+      color: $color-light-blue;
+    }
   }
 
   span {
     @include vp-1024 {
       display: none;
-    }
-  }
-
-  @media (hover: hover), screen and (min-width: $vp-1024) {
-    &:hover span,
-    &:focus span {
-      color: $color-light-blue;
     }
   }
 
@@ -100,6 +99,7 @@
   @media (hover: hover), screen and (min-width: $vp-1024) {
     &:hover,
     &:focus {
+      outline: none;
       color: $color-dark-blue;
       background-color: $color-light;
     }

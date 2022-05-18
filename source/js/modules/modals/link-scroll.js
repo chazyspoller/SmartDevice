@@ -1,7 +1,7 @@
 const linksWithScroll = document.querySelectorAll('[data-link-scroll]');
 
 const scrollToElement = (evt) => {
-  const id = evt.target.getAttribute('href');
+  const id = evt.target.closest('a').getAttribute('href');
   const elementToGo = id.length > 1 ? document.querySelector(id) : null;
 
   if (id.length > 1) {
