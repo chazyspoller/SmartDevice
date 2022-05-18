@@ -437,7 +437,7 @@ html {
 body {
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #f8fdff;
 }
 
 a {
@@ -508,9 +508,9 @@ body main {
 
 .container {
   width: 100%;
-  max-width: 1920px;
+  max-width: 1220px;
   margin: 0 auto;
-  padding: 0 18.22917%;
+  padding: 0 3.7037%;
 }
 
 .header {
@@ -807,6 +807,97 @@ body main {
   transform: scale(0.95);
 }
 
+.advantages {
+  padding: 120px 0;
+}
+
+.advantages__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.advantages__item {
+  padding: 40px 45px;
+  min-height: 300px;
+  outline: 1px solid #ebebeb;
+  outline-offset: -1px;
+  position: relative;
+}
+
+.advantages__item::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+  background-color: #00b2ff;
+  -webkit-transition: width 0.3s ease 0s;
+  -o-transition: width 0.3s ease 0s;
+  transition: width 0.3s ease 0s;
+}
+
+.advantages__item svg {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 5;
+  fill: #00b2ff;
+  -webkit-transition: fill 0.3s ease 0s;
+  -o-transition: fill 0.3s ease 0s;
+  transition: fill 0.3s ease 0s;
+}
+
+.advantages__item h3 {
+  margin: 0;
+  padding: 0;
+  font: 400 1.5em/1.2em "Roboto Condensed", "Arial", sans-serif;
+  color: #00b2ff;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 5;
+  -webkit-transition: color 0.3s ease 0s;
+  -o-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
+}
+
+.advantages__item p {
+  margin: 0;
+  padding: 0;
+  font: 400 1em/1.2em "PT Mono", "Arial", sans-serif;
+  color: #041827;
+  position: relative;
+  z-index: 5;
+  -webkit-transition: color 0.3s ease 0s;
+  -o-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
+}
+
+.advantages__item--active::before {
+  width: 100%;
+  right: -1px;
+}
+
+.advantages__item--active svg {
+  fill: #f2f5f6;
+}
+
+.advantages__item--active h3 {
+  color: #f2f5f6;
+}
+
+.advantages__item--active p {
+  color: #f2f5f6;
+}
+
 /* @media (hover: hover), screen and (min-width: 0\0) {
   &:hover,
   &:focus {
@@ -863,17 +954,28 @@ body main {
     color: #041827;
     background-color: #f2f5f6;
   }
+
+  .advantages__item:hover::before {
+    width: 100%;
+    right: -1px;
+  }
+
+  .advantages__item:hover svg {
+    fill: #f2f5f6;
+  }
+
+  .advantages__item:hover h3 {
+    color: #f2f5f6;
+  }
+
+  .advantages__item:hover p {
+    color: #f2f5f6;
+  }
 }
 
 @media (-webkit-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 144dpi), (-webkit-min-device-pixel-ratio: 1.5) and (min-width: 1024px), (-o-min-device-pixel-ratio: 3/2) and (min-width: 1024px), (min-resolution: 1.5dppx) and (min-width: 1024px) {
   .intro {
     background-image: url("../img/intro-bg@2x.jpg");
-  }
-}
-
-@media (max-width: 1349px) {
-  .container {
-    padding: 0 3.7037%;
   }
 }
 
@@ -985,6 +1087,14 @@ body main {
 
   .intro__link {
     margin-left: 45px;
+  }
+
+  .advantages {
+    padding: 80px 0;
+  }
+
+  .advantages__item {
+    min-height: 360px;
   }
 }
 
@@ -1172,6 +1282,33 @@ body main {
 
   .intro__link span:last-of-type {
     display: inherit;
+  }
+
+  .advantages {
+    padding: 50px 0;
+  }
+
+  .advantages__list {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .advantages__item {
+    padding: 30px 30px 75px;
+    min-height: auto;
+  }
+
+  .advantages__item svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .advantages__item h3 {
+    font: 400 1.25em/1.2em "Roboto Condensed", "Arial", sans-serif;
+  }
+
+  .advantages__item p {
+    font: 400 0.88em/1.2em "PT Mono", "Arial", sans-serif;
   }
 }
 
