@@ -1,0 +1,154 @@
+.services {
+  padding: 70px 0 140px;
+  background-color: $color-dark-blue;
+
+  p {
+    @include reset-margins;
+    font: 400 2.25em/1.2em $ff-titles;
+    color: $color-default-white;
+    margin-bottom: 50px;
+
+    @include vp-768 {
+      font: 400 1.75em/ 1.2em $ff-titles;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.services__list {
+  @include reset-margins;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 6.95%;
+
+  @include vp-1024 {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.services__item {
+  flex: 0 1 28.7%;
+  overflow: hidden;
+
+  @include vp-1024 {
+    flex: 1 1 100%;
+  }
+}
+
+.services__link {
+  padding: 50px 40px;
+  display: block;
+  width: 100%;
+  min-height: 650px;
+  cursor: pointer;
+  position: relative;
+
+  @include vp-1024 {
+    padding: 40px 45px;
+    min-height: 250px;
+  }
+
+  @include vp-768 {
+    padding: 30px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $color-intro-bg;
+  }
+
+  h3 {
+    @include reset-margins;
+    font: 400 1.25em/1.2em $ff-titles;
+    color: $color-default-white;
+    position: relative;
+    z-index: 2;
+
+    @include vp-768 {
+      font: 400 1.13em/1.2em $ff-default;
+    }
+  }
+
+  button {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background-color: $color-light-blue;
+    border-radius: 3px 0 0 0;
+    border: none;
+    transition: transform 0.3s ease 0s;
+    cursor: pointer;
+
+    @include vp-768 {
+      width: 40px;
+      height: 40px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background: url("../img/svg/icon-arrow.svg") center center no-repeat;
+    }
+  }
+
+  img {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center top;
+    background-color: $color-dark-blue;
+    transition: transform 0.3s ease 0s;
+
+    @include vp-768 {
+      object-position: center 75%;
+    }
+  }
+
+  @media (hover: hover), screen and (min-width: $vp-1024) {
+    &:hover img,
+    &:focus img {
+      transform: scale(1.1);
+    }
+
+    &:hover button,
+    &:focus button {
+      transform: scale(1.5);
+
+      &::before {
+        top: 45%;
+        right: 0;
+        left: 45%;
+      }
+    }
+  }
+
+  &:active button {
+    transform: scale(1.2);
+
+    &::before {
+      top: 45%;
+      right: 0;
+      left: 45%;
+    }
+  }
+}

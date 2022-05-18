@@ -36,7 +36,7 @@
   top: 80px;
   left: -80px;
 
-  background:url('../img/year-bg.jpg');
+  background:url("../img/year-bg.jpg");
   background-repeat: no-repeat;
   background-position: 20% 60%;
   text-transform: uppercase;
@@ -49,6 +49,11 @@
   vertical-align: middle;
   font: 700 156px/1em $ff-titles;
   transform: rotate(-90deg);
+
+  @include retina {
+    background-image: url("../img/year-bg@2x.jpg");
+    background-size: 155%;
+  }
 
   @include vp-768 {
     display: none;
