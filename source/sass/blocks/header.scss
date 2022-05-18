@@ -91,7 +91,7 @@
   font: 700 0.88em/1em $ff-titles;
   letter-spacing: 5%;
   user-select: none;
-  transition: all 0.3s ease 0s;
+  transition: color 0.3s ease 0s, background-color 0.3s ease 0s, transform 0.3s ease 0s;
 
   @include vp-1024 {
     display: none;

@@ -15,6 +15,8 @@
 }
 
 .social-list__link {
+  transition: opacity 0.3s ease 0s, fill 0.3s ease 0s;
+
   @media (hover: hover), screen and (min-width: $vp-1024) {
     &:hover,
     &:focus {
