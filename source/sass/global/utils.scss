@@ -33,17 +33,12 @@ body {
 }
 
 .scroll-lock-ios {
-  @include vp-768 {
-    position: fixed;
-
-    overflow: hidden;
-  }
+  position: fixed;
+  overflow: hidden;
 }
 
 .scroll-lock {
-  @include vp-768 {
-    overflow: hidden;
-  }
+  overflow: hidden;
 }
 
 .no-scrollbar {
@@ -64,17 +59,15 @@ body {
 }
 
 .overlay {
-  @include vp-768 {
-    &::before {
-      content: "";
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: $color-overlay;
-      z-index: 4;
-    }
+  &::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: $color-overlay;
+    z-index: 4;
   }
 }

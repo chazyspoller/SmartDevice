@@ -1,0 +1,83 @@
+.main-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 30px;
+  align-items: flex-end;
+
+  @include vp-768 {
+    grid-template-columns: 1fr;
+  }
+
+  input:not([type="checkbox"]) {
+    padding: 15px;
+  }
+
+  textarea {
+    padding: 25px 15px;
+    resize: none;
+    height: 155px;
+    grid-column-start: 1;
+    grid-column-end: -1;
+  }
+
+  input:not([type="checkbox"]),
+  textarea {
+    width: 100%;
+    border-radius: 3px;
+    background-color: rgba($color-blue-form, 0.15);
+    border: none;
+    font: 400 1em/1.2em $ff-default;
+    color: $color-default-white;
+
+    @media (hover: hover), screen and (min-width: $vp-1024) {
+      &:hover {
+        outline: 1px solid $color-blue-form;
+      }
+    }
+
+    &:focus {
+      outline: 1px solid $color-default-white;
+    }
+  }
+
+  button {
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+    padding: 15px 25px;
+    width: 265px;
+    background-color: $color-blue-form;
+    font: 700 1em/1.2em $ff-titles;
+    color: $color-default-white;
+    text-transform: uppercase;
+    letter-spacing: 5%;
+    border-radius: 3px;
+    transition: color 0.3s ease 0s, background-color 0.3s ease 0s, transform 0.3s ease 0s;
+
+    @include vp-768 {
+      width: 100%;
+    }
+
+    @media (hover: hover), screen and (min-width: $vp-1024) {
+      &:hover,
+      &:focus {
+        outline: none;
+        background-color: $color-default-white;
+        color: $color-blue-form;
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &--modal {
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    button {
+      width: 100%;
+    }
+  }
+}

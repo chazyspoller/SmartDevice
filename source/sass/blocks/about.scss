@@ -36,7 +36,7 @@
   top: 80px;
   left: -80px;
 
-  background:url("../img/year-bg.jpg");
+  background: url("../img/year-bg.jpg");
   background-repeat: no-repeat;
   background-position: 20% 60%;
   text-transform: uppercase;
@@ -107,7 +107,7 @@
     &:focus {
       outline: none;
       color: $color-light;
-      background-color:  $color-light-blue;
+      background-color: $color-light-blue;
     }
   }
 

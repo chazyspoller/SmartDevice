@@ -7,6 +7,7 @@ export class Modals {
     this._focusLock = new FocusLock();
 
     this._modalOpenElements = document.querySelectorAll('[data-open-modal]');
+    this._focusField = document.querySelector('[data-open-focus]');
     this._openedModalElement = null;
     this._modalName = null;
     this._enableScrolling = true;
@@ -14,7 +15,6 @@ export class Modals {
 
     this._settings = settings;
     this._preventDefault = this._settings[this._settingKey].preventDefault;
-    this._stopPlay = this._settings[this._settingKey].stopPlay;
     this._lockFocus = this._settings[this._settingKey].lockFocus;
     this._startFocus = this._settings[this._settingKey].startFocus;
     this._focusBack = this._settings[this._settingKey].focusBack;
@@ -44,10 +44,6 @@ export class Modals {
       typeof this._settings[settingKey].preventDefault === 'boolean'
         ? this._settings[settingKey].preventDefault
         : this._settings[this._settingKey].preventDefault;
-    this._stopPlay =
-      typeof this._settings[settingKey].stopPlay === 'boolean'
-        ? this._settings[settingKey].stopPlay
-        : this._settings[this._settingKey].stopPlay;
     this._lockFocus =
       typeof this._settings[settingKey].lockFocus === 'boolean'
         ? this._settings[settingKey].lockFocus
@@ -115,24 +111,6 @@ export class Modals {
     document.removeEventListener('keydown', this._documentKeydownHandler);
   }
 
-  _stopInteractive(modal) {
-    if (this._stopPlay) {
-      modal.querySelectorAll('video, audio').forEach((el) => el.pause());
-      modal.querySelectorAll('[data-iframe]').forEach((el) => {
-        el.querySelector('iframe').contentWindow.postMessage('{"event": "command", "func": "pauseVideo", "args": ""}', '*');
-      });
-    }
-  }
-
-  _autoPlay(modal) {
-    modal.querySelectorAll('[data-iframe]').forEach((el) => {
-      const autoPlay = el.closest('[data-auto-play]');
-      if (autoPlay) {
-        el.querySelector('iframe').contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-      }
-    });
-  }
-
   open(modalName = this._modalName) {
     const modal = document.querySelector(`[data-modal="${modalName}"]`);
 
@@ -152,6 +130,12 @@ export class Modals {
     this._setSettings(modalName);
     modal.classList.add('is-active');
 
+    if (this._focusField && modal.classList.contains('is-active')) {
+      setTimeout(() => {
+        this._focusField.focus();
+      }, 200);
+    }
+
     if (!this._openedModalElement) {
       this._scrollLock.disableScrolling();
     }
@@ -166,7 +150,6 @@ export class Modals {
 
     setTimeout(() => {
       this._addListeners(modal);
-      this._autoPlay(modal);
       document.addEventListener('click', this._documentClickHandler);
     }, this._eventTimeout);
   }
@@ -185,7 +168,6 @@ export class Modals {
 
     modal.classList.remove('is-active');
     this._removeListeners(modal);
-    this._stopInteractive(modal);
 
     if (this._closeCallback) {
       this._closeCallback();

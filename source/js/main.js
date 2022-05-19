@@ -1,10 +1,9 @@
-import {iosVhFix} from './utils/ios-vh-fix';
 import {initModals} from './modules/modals/init-modals';
+import {initForms} from './modules/modals/init-forms';
 import './modules/modals/footer-links';
 import './modules/modals/advantages';
 import './modules/modals/about-more';
 import './modules/modals/link-scroll';
-import './modules/modals/question-form';
 
 // ---------------------------------
 
@@ -13,7 +12,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // Utils
   // ---------------------------------
 
-  iosVhFix();
+  initModals();
+  initForms();
 
   // Modules
   // ---------------------------------

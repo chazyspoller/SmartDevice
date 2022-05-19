@@ -489,6 +489,15 @@ body main {
   clip-path: inset(100%);
 }
 
+.scroll-lock-ios {
+  position: fixed;
+  overflow: hidden;
+}
+
+.scroll-lock {
+  overflow: hidden;
+}
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -506,6 +515,18 @@ body main {
   outline: 2px solid #ff0000;
 }
 
+.overlay::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(3, 16, 27, 0.7);
+  z-index: 4;
+}
+
 .container {
   width: 100%;
   max-width: 1220px;
@@ -517,6 +538,10 @@ body main {
   -ms-flex-order: 2;
   order: 2;
   width: 80%;
+}
+
+.checkbox--modal {
+  width: 100%;
 }
 
 .checkbox input {
@@ -563,6 +588,129 @@ body main {
   height: 15px;
   border: 1px solid #ffffff;
   border-radius: 3px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: rgba(3, 16, 27, 0.7);
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  -o-transition: opacity 0.3s ease 0s, transform 0.3s ease 0s, visibility 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s, transform 0.3s ease 0s, visibility 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s, transform 0.3s ease 0s, visibility 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  pointer-events: none;
+}
+
+.modal--responsive .modal__content {
+  width: 100%;
+}
+
+.modal--fit-content .modal__content {
+  width: auto;
+}
+
+.modal--no-scale {
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.modal--preload {
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.modal__wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 60px 40px;
+}
+
+.modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.modal__content {
+  position: relative;
+  width: 500px;
+  padding: 40px;
+  background-color: #00b2ff;
+}
+
+.modal__content p {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font: 400 1em/1.2em "PT Mono", "Arial", sans-serif;
+  margin-bottom: 40px;
+}
+
+.modal__content p:first-of-type {
+  font: 400 1.88em/1.2em "Roboto Condensed", "Arial", sans-serif;
+  margin-bottom: 15px;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0);
+  border: none;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s ease 0s;
+  transition: -webkit-transform 0.3s ease 0s;
+  -o-transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+}
+
+.modal.is-active {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .header {
@@ -796,8 +944,11 @@ body main {
 .intro {
   padding: 305px 125px 80px;
   min-height: 880px;
-  background: rgba(3, 16, 27, 0.7) url("../img/intro-bg.jpg") center center no-repeat;
-  background-size: cover;
+  background-color: #041427;
+  background-image: url("../img/intro-bg.jpg");
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   position: relative;
 }
 
@@ -1187,6 +1338,10 @@ body main {
 }
 
 .questions {
+  background-color: #00b2ff;
+}
+
+.questions__bg {
   padding: 170px 0 250px;
   position: relative;
   background: url("../img/paper-airplane.png") calc(46% - 298px) center no-repeat, url("../img/svg/mask.svg") 0 0 no-repeat;
@@ -1209,7 +1364,7 @@ body main {
   margin-bottom: 15px;
 }
 
-.questions__form {
+.main-form {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];
@@ -1220,11 +1375,11 @@ body main {
   align-items: flex-end;
 }
 
-.questions__form input:not([type="checkbox"]) {
+.main-form input:not([type="checkbox"]) {
   padding: 15px;
 }
 
-.questions__form textarea {
+.main-form textarea {
   padding: 25px 15px;
   resize: none;
   height: 155px;
@@ -1234,8 +1389,8 @@ body main {
   grid-column-end: -1;
 }
 
-.questions__form input:not([type="checkbox"]),
-.questions__form textarea {
+.main-form input:not([type="checkbox"]),
+.main-form textarea {
   width: 100%;
   border-radius: 3px;
   background-color: rgba(4, 20, 39, 0.15);
@@ -1244,12 +1399,12 @@ body main {
   color: #ffffff;
 }
 
-.questions__form input:not([type="checkbox"]):focus,
-.questions__form textarea:focus {
+.main-form input:not([type="checkbox"]):focus,
+.main-form textarea:focus {
   outline: 1px solid #ffffff;
 }
 
-.questions__form button {
+.main-form button {
   border: none;
   margin-top: 15px;
   cursor: pointer;
@@ -1268,10 +1423,20 @@ body main {
   transition: color 0.3s ease 0s, background-color 0.3s ease 0s, transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
 }
 
-.questions__form button:active {
+.main-form button:active {
   -webkit-transform: scale(0.95);
   -ms-transform: scale(0.95);
   transform: scale(0.95);
+}
+
+.main-form--modal {
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.main-form--modal button {
+  width: 100%;
 }
 
 /* @media (hover: hover), screen and (min-width: 0\0) {
@@ -1282,6 +1447,14 @@ body main {
 } */
 
 @media (hover: hover), screen and (min-width: 1024px) {
+  .modal__close-btn:hover,
+  .modal__close-btn:focus {
+    outline: none;
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+
   .header__link:hover,
   .header__link:focus {
     outline: none;
@@ -1379,13 +1552,13 @@ body main {
     left: 43%;
   }
 
-  .questions__form input:not([type="checkbox"]):hover,
-  .questions__form textarea:hover {
+  .main-form input:not([type="checkbox"]):hover,
+  .main-form textarea:hover {
     outline: 1px solid #041427;
   }
 
-  .questions__form button:hover,
-  .questions__form button:focus {
+  .main-form button:hover,
+  .main-form button:focus {
     outline: none;
     background-color: #ffffff;
     color: #041427;
@@ -1397,7 +1570,7 @@ body main {
     background-image: url("../img/intro-bg@2x.jpg");
   }
 
-  .questions {
+  .questions__bg {
     background-image: url("../img/paper-airplane@2x.png"), url("../img/svg/mask.svg");
     background-size: 511px 285px, contain;
   }
@@ -1408,7 +1581,7 @@ body main {
     padding: 0 2.07407%;
   }
 
-  .questions {
+  .questions__bg {
     background-position: calc(40% - 298px) center, 0 0;
   }
 
@@ -1568,7 +1741,7 @@ body main {
     transform: scale(1.7) translate(-50%, -55%);
   }
 
-  .questions {
+  .questions__bg {
     padding: 50px 0 125px;
     background-image: none;
   }
@@ -1593,27 +1766,6 @@ body main {
 }
 
 @media (max-width: 767px) {
-  .scroll-lock-ios {
-    position: fixed;
-    overflow: hidden;
-  }
-
-  .scroll-lock {
-    overflow: hidden;
-  }
-
-  .overlay::before {
-    content: "";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(3, 16, 27, 0.7);
-    z-index: 4;
-  }
-
   .container {
     padding: 0 25px;
   }
@@ -1624,6 +1776,14 @@ body main {
 
   .checkbox label {
     margin-top: 5px;
+  }
+
+  .modal--fit-content .modal__content {
+    width: 100%;
+  }
+
+  .modal__wrapper {
+    padding: 60px 16px;
   }
 
   .header {
@@ -1759,6 +1919,7 @@ body main {
     padding: 150px 0 80px;
     min-height: 560px;
     background-image: url("../img/intro-bg-mobile.jpg");
+    background-size: cover;
   }
 
   .intro h2 {
@@ -1851,7 +2012,7 @@ body main {
     object-position: center 75%;
   }
 
-  .questions {
+  .questions__bg {
     padding: 50px 0 90px;
   }
 
@@ -1865,12 +2026,12 @@ body main {
     margin-bottom: 40px;
   }
 
-  .questions__form {
+  .main-form {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
 
-  .questions__form button {
+  .main-form button {
     width: 100%;
   }
 }

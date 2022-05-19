@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  <header class="header">
+  <header class="header" data-fix-block>
     <div class="container">
       <nav class="header__main-nav">
         <a class="header__logo">
@@ -51,13 +51,13 @@
             </a>
           </li>
         </ul>
-        <a href="#" class="header__open-popup">Заказать звонок</a>
+        <a href="#" class="header__open-popup" data-open-modal="feedback">Заказать звонок</a>
       </nav>
     </div>
   </header>
   <main>
     <h1 class="visually-hidden">Сайт магазина Smart Device</h1>
-    <section class="intro">
+    <section class="intro" data-block>
       <div class="container">
         <h2>Печатные платы</h2>
         <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
@@ -67,7 +67,7 @@
         </a>
       </div>
     </section>
-    <section class="advantages">
+    <section class="advantages" data-block>
       <div class="container">
         <h2 class="visually-hidden">Преимущества</h2>
         <ul class="advantages__list">
@@ -110,7 +110,7 @@
         </ul>
       </div>
     </section>
-    <section class="about">
+    <section class="about" data-block>
       <div class="container">
         <div class="about__wrapper">
           <p class="about__mask">2022</p>
@@ -134,7 +134,7 @@
         </div>
       </div>
     </section>
-    <section class="services">
+    <section class="services" data-block>
       <div class="container">
         <h2 class="visually-hidden">Товары и услуги</h2>
         <p>Smart Device предлагает следующие товары и услуги</p>
@@ -214,37 +214,74 @@
         </ul>
       </div>
     </section>
-    <section class="questions" id="call">
-      <div class="container">
-        <h2 class="visually-hidden">Форма для связи и вопросов</h2>
-        <div class="questions__wrapper">
-          <p>Остались вопросы? Задайте их нам!</p>
-          <p>Мы проконсультируем Вас бесплатно</p>
-          <form class="questions__form" action="#" method="GET">
-            <input type="text" name="user-name" id="user-name" placeholder="Имя" required>
-            <label class="visually-hidden" for="user-name">Имя</label>
+    <section class="questions" id="call" data-block>
+      <div class="questions__bg">
+        <div class="container">
+          <h2 class="visually-hidden">Форма для связи и вопросов</h2>
+          <div class="questions__wrapper">
+            <p>Остались вопросы? Задайте их нам!</p>
+            <p>Мы проконсультируем Вас бесплатно</p>
+            <form class="main-form" action="#" method="GET" data-form-name="question">
+              <input type="text" name="user-name" id="user-name" placeholder="Имя" required>
+              <label class="visually-hidden" for="user-name">Имя</label>
 
-            <input type="tel" name="user-phone" id="user-phone" placeholder="Телефон" minLength="18" data-phone-pattern required>
-            <label class=" visually-hidden" for="user-phone">Телефон</label>
+              <input type="tel" name="user-phone" id="user-phone" placeholder="Телефон" minLength="18" data-phone-pattern required>
+              <label class=" visually-hidden" for="user-phone">Телефон</label>
 
-            <textarea name="user-question" id="user-question" placeholder="Ваш вопрос"></textarea>
-            <label class="visually-hidden" for="user-question">Ваш вопрос</label>
+              <textarea name="user-question" id="user-question" placeholder="Ваш вопрос"></textarea>
+              <label class="visually-hidden" for="user-question">Ваш вопрос</label>
 
-            <div class="checkbox">
-              <input type="checkbox" name="personal-data" id="personal-data"
+              <div class="checkbox">
+                <input type="checkbox" name="personal-data" id="personal-data"
+                  aria-label="Согласие на обработку персональных данных" required>
+                <label for="personal-data">
+                  Я согласен на обработку персональных данных
+                </label>
+              </div>
+
+              <button type="submit">Задать вопрос</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="modal modal--preload" data-modal="feedback">
+      <div class="modal__wrapper">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content">
+          <p>Закажите звонок</p>
+          <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+          <form class="main-form main-form--modal" action="#" method="GET" data-form-name="call">
+            <input type="text" name="user-name-modal" id="user-name-modal" placeholder="Имя" required data-open-focus>
+            <label class="visually-hidden" for="user-name-modal">Имя</label>
+
+            <input type="tel" name="user-phone-modal" id="user-phone-modal" placeholder="Телефон" minLength="18" data-phone-pattern required>
+            <label class=" visually-hidden" for="user-phone-modal">Телефон</label>
+
+            <textarea name="user-question-modal" id="user-question-modal" placeholder="Ваш вопрос"></textarea>
+            <label class="visually-hidden" for="user-question-modal">Ваш вопрос</label>
+
+            <div class="checkbox checkbox--modal">
+              <input type="checkbox" name="personal-data-modal" id="personal-data-modal"
                 aria-label="Согласие на обработку персональных данных" required>
-              <label for="personal-data">
+              <label for="personal-data-modal">
                 Я согласен на обработку персональных данных
               </label>
             </div>
 
-            <button type="submit">Задать вопрос</button>
+            <button type="submit">Отправить</button>
           </form>
+
+          <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal>
+            <svg width="20" height="20">
+              <use xlink:href="img/sprite_auto.svg#icon-close"></use>
+            </svg>
+          </button>
         </div>
       </div>
-    </section>
+    </div>
   </main>
-  <footer class="footer">
+  <footer class="footer" data-block>
     <div class="container">
       <div class="footer__wrapper">
         <a class="footer__logo">

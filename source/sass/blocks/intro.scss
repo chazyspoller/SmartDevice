@@ -1,8 +1,11 @@
 .intro {
   padding: 120px + 185px 125px 80px;
   min-height: 880px;
-  background: $color-overlay url("../img/intro-bg.jpg") center center no-repeat;
-  background-size: cover;
+  background-color: $color-blue-form;
+  background-image: url("../img/intro-bg.jpg");
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   position: relative;
 
   @include retinaD {
@@ -23,6 +26,7 @@
     padding: 70px + 80px 0 80px;
     min-height: 560px;
     background-image: url("../img/intro-bg-mobile.jpg");
+    background-size: cover;
 
     @include retina {
       background-image: url("../img/intro-bg-mobile@2x.jpg");
