@@ -955,7 +955,7 @@ body main {
 }
 
 .intro {
-  padding: 305px 125px 80px 19.6%;
+  padding: 305px 0 80px;
   min-height: 880px;
   background-color: #041427;
   background-image: url("../img/intro-bg.jpg");
@@ -980,6 +980,7 @@ body main {
 .intro h2 {
   margin: 0;
   padding: 0;
+  margin-left: 10.2%;
   position: relative;
   z-index: 1;
   font: 700 5em/1.2em "Roboto Condensed", "Arial", sans-serif;
@@ -992,6 +993,7 @@ body main {
 .intro p {
   margin: 0;
   padding: 0;
+  margin-left: 10.2%;
   max-width: 700px;
   position: relative;
   z-index: 1;
@@ -1005,6 +1007,7 @@ body main {
   z-index: 1;
   display: inline-block;
   vertical-align: middle;
+  margin-left: 10.2%;
   padding: 16px 25px;
   font: 700 1.13em/1.2em "Roboto Condensed", "Arial", sans-serif;
   letter-spacing: 0.05em;
@@ -1739,11 +1742,13 @@ body main {
   }
 
   .intro h2 {
+    margin-left: 0;
     font: 700 4em/1.2em "Roboto Condensed", "Arial", sans-serif;
     margin-bottom: 2px;
   }
 
   .intro p {
+    margin-left: 0;
     padding-right: 0;
     margin-bottom: 60px;
   }
