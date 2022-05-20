@@ -18,6 +18,10 @@
     height: 155px;
     grid-column-start: 1;
     grid-column-end: -1;
+
+    @include vp-768 {
+      height: 180px;
+    }
   }
 
   input:not([type="checkbox"]),
@@ -44,18 +48,23 @@
     border: none;
     margin-top: 15px;
     cursor: pointer;
-    padding: 15px 25px;
+    padding: 14px 25px 15px;
     width: 265px;
     background-color: $color-blue-form;
     font: 700 1em/1.2em $ff-titles;
     color: $color-default-white;
     text-transform: uppercase;
-    letter-spacing: 5%;
+    letter-spacing: 0.05em;
     border-radius: 3px;
     transition: color 0.3s ease 0s, background-color 0.3s ease 0s, transform 0.3s ease 0s;
 
+    @include vp-1024 {
+      margin-top: 13px;
+    }
+
     @include vp-768 {
       width: 100%;
+      margin-top: 10px;
     }
 
     @media (hover: hover), screen and (min-width: $vp-1024) {
@@ -78,6 +87,8 @@
 
     button {
       width: 100%;
+      margin-top: 2px;
+      padding: 13px;
     }
   }
 }

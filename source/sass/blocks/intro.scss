@@ -1,5 +1,5 @@
 .intro {
-  padding: 120px + 185px 125px 80px;
+  padding: 120px + 185px 125px 80px 19.6%;
   min-height: 880px;
   background-color: $color-blue-form;
   background-image: url("../img/intro-bg.jpg");
@@ -48,37 +48,39 @@
     position: relative;
     z-index: 1;
     font: 700 5em/1.2em $ff-titles;
-    letter-spacing: 7%;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     color: $color-light;
-    margin-bottom: 60px;
+    margin-bottom: 32px;
 
     @include vp-1024 {
       font: 700 4em/1.2em $ff-titles;
-      margin-bottom: 20px;
+      margin-bottom: 2px;
     }
 
     @include vp-768 {
       font: 700 2.25em/1.2em $ff-titles;
+      margin-bottom: 7px;
     }
   }
 
   p {
     @include reset-margins;
-    padding-right: 30%;
+    max-width: 700px;
     position: relative;
     z-index: 1;
-    font: 400 1.38em/1.2em $ff-default;
+    font: 400 1.38em/1.4em $ff-default;
     color: $color-light;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 
     @include vp-1024 {
       padding-right: 0;
-      margin-bottom: 70px;
+      margin-bottom: 60px;
     }
 
     @include vp-768 {
-      font: 400 0.88em/1.2em $ff-default;
+      font: 400 0.88em/1.4em $ff-default;
+      margin-bottom: 48px;
     }
   }
 }
@@ -88,15 +90,17 @@
   z-index: 1;
   display: inline-block;
   vertical-align: middle;
-  padding: 15px 25px;
+  padding: 16px 25px;
   font: 700 1.13em/1.2em $ff-titles;
-  letter-spacing: 5%;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: $color-light;
   background-color: $color-light-blue;
   border-radius: 3px;
   user-select: none;
   transition: color 0.3s ease 0s, background-color 0.3s ease 0s, transform 0.3s ease 0s;
+  max-width: 500px;
+  text-align: center;
 
   span:last-of-type {
     display: none;
@@ -109,6 +113,7 @@
   @include vp-768 {
     margin-left: 0;
     padding: 10px;
+    max-width: auto;
     width: 100%;
     font: 700 0.88em/1.2em $ff-titles;
     text-align: center;

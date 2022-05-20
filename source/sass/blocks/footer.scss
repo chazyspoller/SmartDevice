@@ -13,20 +13,21 @@
 
 .footer__wrapper {
   display: grid;
-  grid-template-columns: 20% auto;
+  grid-template-columns: max-content auto;
   grid-template-rows: 55px max-content;
-  gap: 30px 10%;
+  gap: 33px 12.5%;
 
   @include vp-1024 {
     grid-template-columns: 215px auto;
     grid-template-rows: max-content auto;
+    gap: 35px 10%;
   }
 
   @include vp-768 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 15px 0;
+    gap: 20px 0;
     align-items: center;
   }
 }
@@ -52,8 +53,8 @@
 
 .footer__footer-nav {
   @include reset-margins;
+  padding: 7px 0 0 10px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   grid-column-start: 2;
   grid-row-start: 1;
@@ -61,8 +62,7 @@
   position: relative;
 
   @include vp-1024 {
-    justify-content: flex-start;
-    gap: 5px 15%;
+    padding: 0;
     grid-column-start: 1;
     grid-column-end: -1;
     grid-row-start: 2;
@@ -70,6 +70,7 @@
   }
 
   @include vp-768 {
+    flex-direction: column;
     align-self: flex-start;
     gap: 0;
     width: 100%;
@@ -87,15 +88,27 @@
 }
 
 .footer__nav-item {
-  flex: 0 1 45%;
+  flex: 0 1 44.5%;
   position: relative;
+
+  &:last-of-type {
+    flex: 0 1 41%;
+  }
 
   @include vp-1024 {
     flex: 0 1 35%;
+
+    &:last-of-type {
+      flex: 0 1 48%;
+    }
   }
 
   @include vp-768 {
     flex: 0 1 100%;
+
+    &:last-of-type {
+      flex: 0 1 100%;
+    }
 
     &::before {
       content: "";

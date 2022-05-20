@@ -1,16 +1,42 @@
 .services {
-  padding: 70px 0 140px;
+  padding: 65px 0 140px;
   background-color: $color-dark-blue;
+
+  @include vp-1024 {
+    padding: 55px 0 72px;
+  }
+
+  @include vp-768 {
+    padding: 48px 0 85px;
+  }
 
   p {
     @include reset-margins;
-    font: 400 2.25em/1.2em $ff-titles;
+    font: 400 2.25em/1.4em $ff-titles;
     color: $color-default-white;
-    margin-bottom: 50px;
+    margin-bottom: 55px;
+
+    @include vp-1024 {
+      margin-bottom: 40px;
+    }
 
     @include vp-768 {
-      font: 400 1.75em/ 1.2em $ff-titles;
-      margin-bottom: 40px;
+      font: 400 1.75em/ 1.4em $ff-titles;
+      margin-bottom: 28px;
+    }
+
+    &:first-of-type {
+      @include vp-768 {
+        display: none;
+      }
+    }
+
+    &:last-of-type {
+      display: none;
+
+      @include vp-768 {
+        display: block;
+      }
     }
   }
 }
@@ -38,7 +64,7 @@
 }
 
 .services__link {
-  padding: 50px 40px;
+  padding: 48px 40px;
   display: block;
   width: 100%;
   min-height: 650px;
@@ -46,12 +72,12 @@
   position: relative;
 
   @include vp-1024 {
-    padding: 40px 45px;
+    padding: 35px 45px;
     min-height: 250px;
   }
 
   @include vp-768 {
-    padding: 30px;
+    padding: 28px 30px;
   }
 
   &::before {
@@ -67,13 +93,19 @@
 
   h3 {
     @include reset-margins;
-    font: 400 1.25em/1.2em $ff-titles;
+    font: 400 1.25em/1.5em $ff-titles;
     color: $color-default-white;
     position: relative;
+    max-width: 180px;
     z-index: 2;
 
+    @include vp-1024 {
+      max-width: 150px;
+    }
+
     @include vp-768 {
-      font: 400 1.13em/1.2em $ff-default;
+      font: 400 1.13em/1.55em $ff-titles;
+      max-width: 120px;
     }
   }
 

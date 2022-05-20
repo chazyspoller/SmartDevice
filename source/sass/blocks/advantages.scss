@@ -43,23 +43,39 @@
 
   @include vp-1024 {
     min-height: 360px;
+    padding: 40px 45px 35px;
   }
 
   @include vp-768 {
-    padding: 30px 30px 75px;
+    padding: 30px;
     min-height: 340px;
+  }
+
+  &--small {
+    @include vp-768 {
+      min-height: 325px;
+
+      p {
+        margin-top: 15px;
+      }
+    }
   }
 
   svg {
     width: 35px;
     height: 35px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     position: relative;
     z-index: 5;
     fill: $color-light-blue;
     transition: fill 0.3s ease 0s;
 
+    @include vp-1024 {
+      margin-bottom: 7px;
+    }
+
     @include vp-768 {
+      margin-bottom: 11px;
       width: 30px;
       height: 30px;
     }
@@ -74,21 +90,31 @@
     z-index: 5;
     transition: color 0.3s ease 0s;
 
+    @include vp-1024 {
+      line-height: 1.4em;
+      margin-bottom: 9px;
+    }
+
     @include vp-768 {
-      font: 400 1.25em/1.2em $ff-titles;
+      font: 400 1.25em/1.4em $ff-titles;
+      margin-bottom: 8px;
     }
   }
 
   p {
     @include reset-margins;
-    font: 400 1em/1.2em $ff-default;
+    font: 400 1em/1.4em $ff-default;
     color: $color-dark-blue;
     position: relative;
     z-index: 5;
     transition: color 0.3s ease 0s;
 
+    @include vp-1024 {
+      line-height: 1.35em;
+    }
+
     @include vp-768 {
-      font: 400 0.88em/1.2em $ff-default;
+      font: 400 0.88em/1.35em $ff-default;
     }
   }
 

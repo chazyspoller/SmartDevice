@@ -3,15 +3,15 @@
 }
 
 .questions__bg {
-  padding: 170px 0 250px;
+  padding: 132px 0 250px;
   position: relative;
-  background: url("../img/paper-airplane.png") calc(46% - 298px) center no-repeat, url("../img/svg/mask.svg") 0 0 no-repeat;
+  background: url("../img/paper-airplane.png") calc(46% - 298px) 44% no-repeat, url("../img/svg/mask.svg") 0 0 no-repeat;
   background-size: auto, contain;
   background-color: $color-light-blue;
 
   @include retinaD {
     background-image: url("../img/paper-airplane@2x.png"), url("../img/svg/mask.svg");
-    background-size: 511px 285px, contain;
+    background-size: 510px 285px, contain;
   }
 
   @include vp-1350 {
@@ -19,17 +19,17 @@
   }
 
   @include vp-1024 {
-    padding: 50px 0 125px;
+    padding: 13px 0 125px;
     background-image: none;
   }
 
   @include vp-768 {
-    padding: 50px 0 90px;
+    padding: 20px 0 78px;
   }
 }
 
 .questions__wrapper {
-  padding: 0 0 0 50%;
+  padding: 0 8px 0 51.5%;
 
   @include vp-1350 {
     padding: 0 0 0 45%;
@@ -45,18 +45,18 @@
       margin-bottom: 15px;
 
       @include vp-1024 {
-        margin-bottom: 10px;
+        margin-bottom: 7px;
       }
 
       @include vp-768 {
-        font: 400 1.88em/1.2em $ff-titles;
-        margin-bottom: 20px;
+        font: 400 1.88em/1.3em $ff-titles;
+        margin-bottom: 2px;
       }
     }
 
     font: 400 1em/1.2em $ff-default;
     color: $color-default-white;
-    margin-bottom: 35px;
+    margin-bottom: 37px;
 
     @include vp-1024 {
       margin-bottom: 25px;
@@ -64,7 +64,7 @@
 
     @include vp-768 {
       font: 400 0.88em/1.2em $ff-default;
-      margin-bottom: 40px;
+      margin-bottom: 34px;
     }
   }
 }

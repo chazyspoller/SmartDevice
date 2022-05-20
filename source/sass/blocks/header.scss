@@ -10,7 +10,7 @@
   }
 
   @include vp-768 {
-    padding: 15px 10px 20px 0;
+    padding: 15px 0 20px;
   }
 }
 
@@ -18,6 +18,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding: 0 60px 0 0;
+
+  @include vp-1024 {
+    padding: 0 20px 0 0;
+  }
+
+  @include vp-768 {
+    padding: 0 10px 0 0;
+  }
 }
 
 .header__logo {
@@ -35,15 +44,17 @@
 .header__menu {
   @include reset-margins;
   list-style: none;
-  flex: 0 0 43%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 5px;
+  flex: 0 1 42%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 5px 0;
   gap: 0 20px;
 
   @include vp-1024 {
-    flex: 0 0 70%;
+    flex: 0 1 65%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
     justify-content: flex-end;
   }
 
@@ -57,6 +68,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 0 5px;
   color: $color-light;
   font: 400 1em/1em $ff-default;
 
@@ -88,9 +100,11 @@
   border: 1px solid $color-light;
   border-radius: 3px;
   font: 700 0.88em/1em $ff-titles;
-  letter-spacing: 5%;
+  letter-spacing: 0.05em;
   user-select: none;
   transition: color 0.3s ease 0s, background-color 0.3s ease 0s, transform 0.3s ease 0s;
+  max-width: 300px;
+  text-align: center;
 
   @include vp-1024 {
     display: none;

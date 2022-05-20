@@ -7,22 +7,27 @@
 
   h2 {
     @include reset-margins;
-    font: 400 2.25em/1.2em $ff-titles;
+    font: 400 2.25em/1.3em $ff-titles;
     color: $color-dark-blue;
     margin-bottom: 15px;
 
+    @include vp-1024 {
+      margin-bottom: 10px;
+    }
+
     @include vp-768 {
       font: 400 1.75em/1.2em $ff-titles;
+      margin-bottom: 15px;
     }
   }
 }
 
 .about__wrapper {
   position: relative;
-  padding: 0 0 0 280/1220 * 100%;
+  padding: 0 0 0 250/1220 * 100%;
 
   @include vp-1024 {
-    padding: 0 0 0 180px;
+    padding: 0 0 0 175px;
   }
 
   @include vp-768 {
@@ -33,8 +38,8 @@
 .about__mask {
   @include reset-margins;
   position: absolute;
-  top: 80px;
-  left: -80px;
+  top: 84px;
+  left: -68px;
 
   background: url("../img/year-bg.jpg");
   background-repeat: no-repeat;
@@ -52,7 +57,7 @@
 
   @include retina {
     background-image: url("../img/year-bg@2x.jpg");
-    background-size: 155%;
+    background-size: 155.8%;
   }
 
   @include vp-768 {
@@ -63,7 +68,7 @@
 .about__text {
   @include reset-margins;
   color: $color-dark-blue;
-  font: 400 1em/1.2em $ff-default;
+  font: 400 1em/1.4em $ff-default;
   margin-bottom: 20px;
   height: auto;
   visibility: visible;
@@ -71,8 +76,16 @@
   opacity: 1;
   transition: all 0.3s ease 0s;
 
+  @include vp-1024 {
+    line-height: 1.36em;
+  }
+
   @include vp-768 {
-    font: 400 0.88em/1em $ff-default;
+    font: 400 0.88em/1.33em $ff-default;
+  }
+
+  &--nomargin {
+    margin-bottom: 0;
   }
 
   &--inactive {
@@ -82,21 +95,44 @@
     margin-bottom: 0;
     opacity: 0;
   }
+
+  &--inactive-half {
+    @include vp-768 {
+      height: 0;
+      visibility: hidden;
+      overflow: hidden;
+      margin-bottom: 0;
+      opacity: 0;
+    }
+  }
 }
 
 .about__link {
   display: inline-block;
   vertical-align: middle;
+  width: 180px;
   padding: 14px 12px;
   font: 700 0.88em/1em $ff-titles;
-  letter-spacing: 5%;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  text-align: center;
   color: $color-light-blue;
   border: 1px solid $color-light-blue;
   border-radius: 3px;
   user-select: none;
   cursor: pointer;
+  margin-top: 20px;
   transition: color 0.3s ease 0s, background-color 0.3s ease 0s, transform 0.3s ease 0s;
+
+  @include vp-1024 {
+    margin-top: 0;
+  }
+
+  @include vp-768 {
+    margin-top: 12px;
+    width: 160px;
+    padding: 11px;
+  }
 
   span:last-of-type {
     display: none;

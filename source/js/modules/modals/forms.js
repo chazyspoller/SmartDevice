@@ -22,8 +22,10 @@ export class Forms {
   }
 
   _init() {
+    if (this._phoneField) {
+      this._activatePhoneMask();
+    }
     this._activateLocalStorage();
-    this._activatePhoneMask();
     this._activateFormValid();
   }
 
@@ -68,9 +70,15 @@ export class Forms {
 
   _activateLocalStorage() {
     try {
-      this._storagePhone = localStorage.getItem(`${this._phoneField.getAttribute('id')}`);
-      this._storageQuestion = localStorage.getItem(`${this._questionField.getAttribute('id')}`);
-      this._storageName = localStorage.getItem(`${this._nameField.getAttribute('id')}`);
+      if (this._phoneField) {
+        this._storagePhone = localStorage.getItem(`${this._phoneField.getAttribute('id')}`);
+      }
+      if (this._questionField) {
+        this._storageQuestion = localStorage.getItem(`${this._questionField.getAttribute('id')}`);
+      }
+      if (this._nameField) {
+        this._storageName = localStorage.getItem(`${this._nameField.getAttribute('id')}`);
+      }
     } catch (err) {
       this._isStorageSupport = false;
     }
@@ -86,9 +94,15 @@ export class Forms {
 
   _useLocalStorage() {
     if (this._isStorageSupport) {
-      localStorage.setItem(`${this._nameField.getAttribute('id')}`, this._nameField.value);
-      localStorage.setItem(`${this._phoneField.getAttribute('id')}`, this._phoneField.value);
-      localStorage.setItem(`${this._questionField.getAttribute('id')}`, this._questionField.value);
+      if (this._phoneField) {
+        localStorage.setItem(`${this._phoneField.getAttribute('id')}`, this._phoneField.value);
+      }
+      if (this._nameField) {
+        localStorage.setItem(`${this._nameField.getAttribute('id')}`, this._nameField.value);
+      }
+      if (this._questionField) {
+        localStorage.setItem(`${this._questionField.getAttribute('id')}`, this._questionField.value);
+      }
     }
   }
 
@@ -97,19 +111,22 @@ export class Forms {
       return;
     }
 
-    if (this._storagePhone) {
+    if (this._storagePhone && this._phoneField) {
       this._phoneField.value = this._storagePhone;
     } else {
       this._phoneField.value = '';
     }
-    if (this._storageName) {
+    if (this._storageName && this._nameField) {
       this._nameField.value = this._storageName;
     }
-    if (this._storageQuestion) {
+    if (this._storageQuestion && this._questionField) {
       this._questionField.value = this._storageQuestion;
     }
 
-    this._nameField.addEventListener('input', this._checkNameField);
+    if (this._nameField) {
+      this._nameField.addEventListener('input', this._checkNameField);
+    }
+
     this._form.addEventListener('submit', this._useLocalStorage);
   }
 }
