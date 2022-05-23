@@ -515,18 +515,6 @@ body main {
   outline: 2px solid #ff0000;
 }
 
-.overlay::before {
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(3, 16, 27, 0.7);
-  z-index: 4;
-}
-
 .container {
   width: 100%;
   max-width: 1220px;
@@ -1146,13 +1134,13 @@ body main {
   padding: 0 0 0 20.4918%;
 }
 
-.about__mask {
-  margin: 0;
-  padding: 0;
+.about__wrapper::before {
+  content: "2022";
   position: absolute;
   top: 84px;
   left: -68px;
   background: url("../img/year-bg.jpg");
+  background-color: #00b2ff;
   background-repeat: no-repeat;
   background-position: 20% 60%;
   text-transform: uppercase;
@@ -1168,31 +1156,43 @@ body main {
   transform: rotate(-90deg);
 }
 
-.about__text {
+.about__wrapper p {
   margin: 0;
   padding: 0;
   color: #041827;
   font: 400 1em/1.4em "PT Mono", "Arial", sans-serif;
-  margin-bottom: 20px;
+  margin-top: 20px;
   height: auto;
   visibility: visible;
-  overflow: none;
+  overflow: auto;
   opacity: 1;
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 
-.about__text--nomargin {
-  margin-bottom: 0;
+.about__wrapper p:last-of-type {
+  margin-bottom: 20px;
 }
 
-.about__text--inactive {
+.about__wrapper > p:first-of-type {
+  margin-top: 0;
+}
+
+.about__wrapper > p:last-of-type {
+  margin-top: 0;
+}
+
+.about__text-inactive p {
   height: 0;
   visibility: hidden;
   overflow: hidden;
-  margin-bottom: 0;
+  margin-top: 0;
   opacity: 0;
+}
+
+.about__text-inactive p:last-of-type {
+  margin-bottom: 0;
 }
 
 .about__link {
@@ -1791,7 +1791,7 @@ body main {
     padding: 0 0 0 175px;
   }
 
-  .about__text {
+  .about__wrapper p {
     line-height: 1.36em;
   }
 
@@ -2117,20 +2117,27 @@ body main {
     padding: 0;
   }
 
-  .about__mask {
+  .about__wrapper::before {
     display: none;
   }
 
-  .about__text {
+  .about__wrapper p {
     font: 400 0.88em/1.33em "PT Mono", "Arial", sans-serif;
   }
 
-  .about__text--inactive-half {
+  .about__wrapper > p:last-of-type {
     height: 0;
     visibility: hidden;
     overflow: hidden;
     margin-bottom: 0;
     opacity: 0;
+  }
+
+  .about__wrapper--active-text > p:last-of-type {
+    height: auto;
+    visibility: visible;
+    overflow: auto;
+    opacity: 1;
   }
 
   .about__link {
@@ -2211,7 +2218,7 @@ body main {
 }
 
 @media (-webkit-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
-  .about__mask {
+  .about__wrapper::before {
     background-image: url("../img/year-bg@2x.jpg");
     background-size: 155.8%;
   }

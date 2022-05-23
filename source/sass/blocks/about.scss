@@ -33,76 +33,98 @@
   @include vp-768 {
     padding: 0;
   }
+
+  &::before {
+    content: "2022";
+    position: absolute;
+    top: 84px;
+    left: -68px;
+
+    background: url("../img/year-bg.jpg");
+    background-color: $color-light-blue;
+    background-repeat: no-repeat;
+    background-position: 20% 60%;
+    text-transform: uppercase;
+    text-align: center;
+    color: transparent;
+    background-clip: text;
+
+    @include retina {
+      background-image: url("../img/year-bg@2x.jpg");
+      background-size: 155.8%;
+    }
+
+    display: inline-block;
+    vertical-align: middle;
+    font: 700 156px/1em $ff-titles;
+    transform: rotate(-90deg);
+
+    @include vp-768 {
+      display: none;
+    }
+  }
+
+  p {
+    @include reset-margins;
+    color: $color-dark-blue;
+    font: 400 1em/1.4em $ff-default;
+    margin-top: 20px;
+    //margin-bottom: 20px;
+    height: auto;
+    visibility: visible;
+    overflow: auto;
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+
+    @include vp-1024 {
+      line-height: 1.36em;
+    }
+
+    @include vp-768 {
+      font: 400 0.88em/1.33em $ff-default;
+    }
+
+    &:last-of-type {
+      margin-bottom: 20px;
+    }
+  }
 }
 
-.about__mask {
-  @include reset-margins;
-  position: absolute;
-  top: 84px;
-  left: -68px;
-
-  background: url("../img/year-bg.jpg");
-  background-repeat: no-repeat;
-  background-position: 20% 60%;
-  text-transform: uppercase;
-  text-align: center;
-  color: transparent;
-  background-clip: text;
-  //background-size: cover;
-
-  display: inline-block;
-  vertical-align: middle;
-  font: 700 156px/1em $ff-titles;
-  transform: rotate(-90deg);
-
-  @include retina {
-    background-image: url("../img/year-bg@2x.jpg");
-    background-size: 155.8%;
-  }
-
-  @include vp-768 {
-    display: none;
-  }
+.about__wrapper > p:first-of-type {
+  margin-top: 0;
 }
 
-.about__text {
-  @include reset-margins;
-  color: $color-dark-blue;
-  font: 400 1em/1.4em $ff-default;
-  margin-bottom: 20px;
-  height: auto;
-  visibility: visible;
-  overflow: none;
-  opacity: 1;
-  transition: all 0.3s ease 0s;
-
-  @include vp-1024 {
-    line-height: 1.36em;
-  }
+.about__wrapper > p:last-of-type {
+  margin-top: 0;
 
   @include vp-768 {
-    font: 400 0.88em/1.33em $ff-default;
-  }
-
-  &--nomargin {
-    margin-bottom: 0;
-  }
-
-  &--inactive {
     height: 0;
     visibility: hidden;
     overflow: hidden;
     margin-bottom: 0;
     opacity: 0;
   }
+}
 
-  &--inactive-half {
-    @include vp-768 {
-      height: 0;
-      visibility: hidden;
-      overflow: hidden;
+.about__wrapper--active-text > p:last-of-type {
+  @include vp-768 {
+    height: auto;
+    visibility: visible;
+    overflow: auto;
+    opacity: 1;
+  }
+}
+
+.about__text-inactive {
+  p {
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    margin-top: 0;
+    opacity: 0;
+
+    &:last-of-type {
       margin-bottom: 0;
-      opacity: 0;
     }
   }
 }

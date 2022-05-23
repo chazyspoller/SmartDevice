@@ -1,35 +1,35 @@
 export class Forms {
   constructor(form) {
-    this._form = form;
+    this.form = form;
 
-    this._phoneField = form.querySelector('input[type="tel"]');
-    this._nameField = form.querySelector('input[type="text"]');
-    this._questionField = form.querySelector('textarea');
+    this.phoneField = form.querySelector('input[type="tel"]');
+    this.nameField = form.querySelector('input[type="text"]');
+    this.questionField = form.querySelector('textarea');
 
-    this._isStorageSupport = true;
-    this._storagePhone = '';
-    this._storageQuestion = '';
-    this._storageName = '';
+    this.isStorageSupport = true;
+    this.storagePhone = '';
+    this.storageQuestion = '';
+    this.storageName = '';
 
-    this._activatePhoneMask = this._activatePhoneMask.bind(this);
-    this._activateFormValid = this._activateFormValid.bind(this);
-    this._checkPhoneMask = this._checkPhoneMask.bind(this);
-    this._checkNameField = this._checkNameField.bind(this);
-    this._useLocalStorage = this._useLocalStorage.bind(this);
-    this._activateLocalStorage = this._activateLocalStorage.bind(this);
+    this.activatePhoneMask = this.activatePhoneMask.bind(this);
+    this.activateFormValid = this.activateFormValid.bind(this);
+    this.checkPhoneMask = this.checkPhoneMask.bind(this);
+    this.checkNameField = this.checkNameField.bind(this);
+    this.useLocalStorage = this.useLocalStorage.bind(this);
+    this.activateLocalStorage = this.activateLocalStorage.bind(this);
 
-    this._init();
+    this.init();
   }
 
-  _init() {
-    if (this._phoneField) {
-      this._activatePhoneMask();
+  init() {
+    if (this.phoneField) {
+      this.activatePhoneMask();
     }
-    this._activateLocalStorage();
-    this._activateFormValid();
+    this.activateLocalStorage();
+    this.activateFormValid();
   }
 
-  _checkPhoneMask(evt) {
+  checkPhoneMask(evt) {
     const el = evt.target;
     const clearVal = el.dataset.phoneClear;
     const pattern = el.dataset.phonePattern;
@@ -62,29 +62,29 @@ export class Forms {
     });
   }
 
-  _activatePhoneMask() {
+  activatePhoneMask() {
     for (let ev of ['input', 'blur', 'focus']) {
-      this._phoneField.addEventListener(ev, this._checkPhoneMask);
+      this.phoneField.addEventListener(ev, this.checkPhoneMask);
     }
   }
 
-  _activateLocalStorage() {
+  activateLocalStorage() {
     try {
-      if (this._phoneField) {
-        this._storagePhone = localStorage.getItem(`${this._phoneField.getAttribute('id')}`);
+      if (this.phoneField) {
+        this.storagePhone = localStorage.getItem(`${this.phoneField.getAttribute('id')}`);
       }
-      if (this._questionField) {
-        this._storageQuestion = localStorage.getItem(`${this._questionField.getAttribute('id')}`);
+      if (this.questionField) {
+        this.storageQuestion = localStorage.getItem(`${this.questionField.getAttribute('id')}`);
       }
-      if (this._nameField) {
-        this._storageName = localStorage.getItem(`${this._nameField.getAttribute('id')}`);
+      if (this.nameField) {
+        this.storageName = localStorage.getItem(`${this.nameField.getAttribute('id')}`);
       }
     } catch (err) {
-      this._isStorageSupport = false;
+      this.isStorageSupport = false;
     }
   }
 
-  _checkNameField(evt) {
+  checkNameField(evt) {
     if (evt.target.value === '') {
       evt.target.classList.add('input--error');
     } else {
@@ -92,41 +92,41 @@ export class Forms {
     }
   }
 
-  _useLocalStorage() {
-    if (this._isStorageSupport) {
-      if (this._phoneField) {
-        localStorage.setItem(`${this._phoneField.getAttribute('id')}`, this._phoneField.value);
+  useLocalStorage() {
+    if (this.isStorageSupport) {
+      if (this.phoneField) {
+        localStorage.setItem(`${this.phoneField.getAttribute('id')}`, this.phoneField.value);
       }
-      if (this._nameField) {
-        localStorage.setItem(`${this._nameField.getAttribute('id')}`, this._nameField.value);
+      if (this.nameField) {
+        localStorage.setItem(`${this.nameField.getAttribute('id')}`, this.nameField.value);
       }
-      if (this._questionField) {
-        localStorage.setItem(`${this._questionField.getAttribute('id')}`, this._questionField.value);
+      if (this.questionField) {
+        localStorage.setItem(`${this.questionField.getAttribute('id')}`, this.questionField.value);
       }
     }
   }
 
-  _activateFormValid() {
-    if (!this._form) {
+  activateFormValid() {
+    if (!this.form) {
       return;
     }
 
-    if (this._storagePhone && this._phoneField) {
-      this._phoneField.value = this._storagePhone;
+    if (this.storagePhone && this.phoneField) {
+      this.phoneField.value = this.storagePhone;
     } else {
-      this._phoneField.value = '';
+      this.phoneField.value = '';
     }
-    if (this._storageName && this._nameField) {
-      this._nameField.value = this._storageName;
+    if (this.storageName && this.nameField) {
+      this.nameField.value = this.storageName;
     }
-    if (this._storageQuestion && this._questionField) {
-      this._questionField.value = this._storageQuestion;
-    }
-
-    if (this._nameField) {
-      this._nameField.addEventListener('input', this._checkNameField);
+    if (this.storageQuestion && this.questionField) {
+      this.questionField.value = this.storageQuestion;
     }
 
-    this._form.addEventListener('submit', this._useLocalStorage);
+    if (this.nameField) {
+      this.nameField.addEventListener('input', this.checkNameField);
+    }
+
+    this.form.addEventListener('submit', this.useLocalStorage);
   }
 }

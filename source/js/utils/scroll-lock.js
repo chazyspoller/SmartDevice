@@ -2,39 +2,39 @@ import {iosChecker} from './ios-checker';
 
 export class ScrollLock {
   constructor() {
-    this._iosChecker = iosChecker;
-    this._lockClass = this._iosChecker() ? 'scroll-lock-ios' : 'scroll-lock';
-    this._fixedBlockElements = document.querySelectorAll('[data-fix-block]');
-    this._sections = document.querySelectorAll('[data-block]');
+    this.iosChecker = iosChecker;
+    this.lockClass = this.iosChecker() ? 'scroll-lock-ios' : 'scroll-lock';
+    this.fixedBlockElements = document.querySelectorAll('[data-fix-block]');
+    this.sections = document.querySelectorAll('[data-block]');
   }
 
-  _getScrollbarWidth() {
+  getScrollbarWidth() {
     return window.innerWidth - document.documentElement.clientWidth;
   }
 
   disableScrolling() {
-    if (this._getScrollbarWidth()) {
-      this._sections.forEach((section) => {
+    if (this.getScrollbarWidth()) {
+      this.sections.forEach((section) => {
         const sectionPaddingRight = getComputedStyle(section).paddingRight;
         const sectionBackImageExist = getComputedStyle(section).backgroundImage !== 'none';
 
         if (!sectionBackImageExist) {
-          section.style.paddingRight = `${parseInt(sectionPaddingRight, 10) + this._getScrollbarWidth()}px`;
+          section.style.paddingRight = `${parseInt(sectionPaddingRight, 10) + this.getScrollbarWidth()}px`;
         } else {
-          section.style.backgroundSize = `calc(100% - ${this._getScrollbarWidth()}px) 100%`;
-          section.style.paddingRight = `${parseInt(sectionPaddingRight, 10) + this._getScrollbarWidth()}px`;
+          section.style.backgroundSize = `calc(100% - ${this.getScrollbarWidth()}px) 100%`;
+          section.style.paddingRight = `${parseInt(sectionPaddingRight, 10) + this.getScrollbarWidth()}px`;
         }
       });
-      this._fixedBlockElements.forEach((block) => {
-        block.style.paddingRight = `${this._getScrollbarWidth()}px`;
+      this.fixedBlockElements.forEach((block) => {
+        block.style.paddingRight = `${this.getScrollbarWidth()}px`;
       });
     }
-    document.body.classList.add(this._lockClass);
+    document.body.classList.add(this.lockClass);
   }
 
   enableScrolling() {
-    document.body.classList.remove(this._lockClass);
-    this._sections.forEach((section) => {
+    document.body.classList.remove(this.lockClass);
+    this.sections.forEach((section) => {
       const sectionBackImageExist = getComputedStyle(section).backgroundImage !== 'none';
 
       if (!sectionBackImageExist) {
@@ -46,7 +46,7 @@ export class ScrollLock {
       }
     });
     document.body.style.top = null;
-    this._fixedBlockElements.forEach((block) => {
+    this.fixedBlockElements.forEach((block) => {
       block.style.paddingRight = null;
     });
   }

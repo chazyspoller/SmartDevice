@@ -57,17 +57,3 @@ body {
     outline: 2px solid $color-error;
   }
 }
-
-.overlay {
-  &::before {
-    content: "";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: $color-overlay;
-    z-index: 4;
-  }
-}
