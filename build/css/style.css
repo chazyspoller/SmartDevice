@@ -1429,9 +1429,34 @@ body main {
   color: #ffffff;
 }
 
+.main-form input:not([type="checkbox"])::-webkit-input-placeholder,
+.main-form textarea::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+.main-form input:not([type="checkbox"])::-moz-placeholder,
+.main-form textarea::-moz-placeholder {
+  color: #ffffff;
+}
+
+.main-form input:not([type="checkbox"]):-ms-input-placeholder,
+.main-form textarea:-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.main-form input:not([type="checkbox"])::-ms-input-placeholder,
+.main-form textarea::-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.main-form input:not([type="checkbox"])::placeholder,
+.main-form textarea::placeholder {
+  color: #ffffff;
+}
+
 .main-form input:not([type="checkbox"]):focus,
 .main-form textarea:focus {
-  outline: 1px solid #ffffff;
+  outline: 1px solid #f2f5f6;
 }
 
 .main-form button {

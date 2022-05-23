@@ -33,6 +33,10 @@
     font: 400 1em/1.2em $ff-default;
     color: $color-default-white;
 
+    &::placeholder {
+      color: $color-default-white;
+    }
+
     @media (hover: hover), screen and (min-width: $vp-1024) {
       &:hover {
         outline: 1px solid $color-blue-form;
@@ -40,7 +44,7 @@
     }
 
     &:focus {
-      outline: 1px solid $color-default-white;
+      outline: 1px solid $color-light;
     }
   }
 
