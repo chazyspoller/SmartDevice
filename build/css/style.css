@@ -801,10 +801,8 @@ body main {
 .footer__wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: -webkit-max-content auto;
-  -ms-grid-columns: max-content auto;
-  grid-template-columns: -webkit-max-content auto;
-  grid-template-columns: max-content auto;
+  -ms-grid-columns: 215px auto;
+  grid-template-columns: 215px auto;
   -ms-grid-rows: 55px -webkit-max-content;
   -ms-grid-rows: 55px max-content;
   grid-template-rows: 55px -webkit-max-content;
@@ -845,9 +843,6 @@ body main {
 }
 
 .footer__nav-item {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 1 44.5%;
-  flex: 0 1 44.5%;
   position: relative;
 }
 
@@ -874,20 +869,24 @@ body main {
   position: relative;
 }
 
+.footer-links:not(:last-of-type) {
+  margin-right: 15px;
+}
+
 .footer-links__links {
   margin: 0;
   padding: 0;
   list-style: none;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 1fr;
-  grid-template-columns: 2fr 1fr;
+  -ms-grid-columns: (minmax(180px, 235px))[2];
+  grid-template-columns: repeat(2, minmax(180px, 235px));
   -ms-grid-rows: (-webkit-min-content)[4];
   -ms-grid-rows: (min-content)[4];
   grid-template-rows: repeat(4, -webkit-min-content);
   grid-template-rows: repeat(4, min-content);
   gap: 12px 10px;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
 }
 
 .footer-links__links--office {
@@ -924,14 +923,22 @@ body main {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin: -3px 0 0 3px;
+}
+
+.social-list__item {
   padding: 0 15px;
-  gap: 0 25px;
+  margin: 0 -7.5px;
 }
 
 .social-list__link {
   -webkit-transition: opacity 0.3s ease 0s, fill 0.3s ease 0s;
   -o-transition: opacity 0.3s ease 0s, fill 0.3s ease 0s;
   transition: opacity 0.3s ease 0s, fill 0.3s ease 0s;
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  padding: 5px;
 }
 
 .social-list__link svg {
@@ -1525,30 +1532,9 @@ body main {
     background-color: #f2f5f6;
   }
 
-  .footer-links__links a:hover::before,
-  .footer-links__links a:hover::after,
-  .footer-links__links a:focus::before,
-  .footer-links__links a:focus::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 2px solid #00b2ff;
-  }
-
-  .footer-links__links a:hover::after,
-  .footer-links__links a:focus::after {
-    left: -18px;
-  }
-
-  .footer-links__links a:hover::before,
-  .footer-links__links a:focus::before {
-    right: -18px;
+  .footer-links__links a:hover,
+  .footer-links__links a:focus {
+    text-decoration: underline;
   }
 
   .social-list__link:hover,
@@ -1658,6 +1644,7 @@ body main {
   }
 
   .header {
+    position: static;
     padding: 20px 0 25px;
   }
 
@@ -1735,6 +1722,12 @@ body main {
     flex: 0 1 48%;
   }
 
+  .footer-links__links--nav li:nth-of-type(2n) {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+
   .footer-links__links {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1754,13 +1747,14 @@ body main {
   }
 
   .social-list {
-    padding: 0;
+    margin: -7px -12px 0 0;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end;
   }
 
   .intro {
+    margin-top: -100px;
     padding: 180px 0 80px;
     min-height: 640px;
     background-image: url("../img/intro-bg-tablet.jpg");
@@ -1935,7 +1929,7 @@ body main {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    gap: 20px 0;
+    gap: 22px 0;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -2012,6 +2006,10 @@ body main {
     transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
   }
 
+  .footer-links:not(:last-of-type) {
+    margin-right: 0;
+  }
+
   .footer-links--inactive p::after {
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -2062,7 +2060,15 @@ body main {
     margin-bottom: 5px;
   }
 
+  .social-list {
+    margin: -7px 0 0 2px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
   .intro {
+    margin-top: -75px;
     padding: 150px 0 80px;
     min-height: 560px;
     background-image: url("../img/intro-bg-mobile.jpg");

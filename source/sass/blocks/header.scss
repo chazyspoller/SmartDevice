@@ -6,6 +6,7 @@
   padding: 30px 0 35px;
 
   @include vp-1024 {
+    position: static;
     padding: 20px 0 25px;
   }
 

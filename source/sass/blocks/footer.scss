@@ -13,7 +13,7 @@
 
 .footer__wrapper {
   display: grid;
-  grid-template-columns: max-content auto;
+  grid-template-columns: 215px auto;
   grid-template-rows: 55px max-content;
   gap: 33px 12.5%;
 
@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 20px 0;
+    gap: 22px 0;
     align-items: center;
   }
 }
@@ -88,7 +88,7 @@
 }
 
 .footer__nav-item {
-  flex: 0 1 44.5%;
+  //flex: 0 1 44.5%;
   position: relative;
 
   &:last-of-type {

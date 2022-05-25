@@ -31,7 +31,15 @@
     }
   }
 
+  &:not(:last-of-type) {
+    margin-right: 15px;
+  }
+
   @include vp-768 {
+    &:not(:last-of-type) {
+      margin-right: 0;
+    }
+
     &--inactive {
       p {
         &::after {
@@ -69,13 +77,23 @@
   @include reset-margins;
   list-style: none;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: repeat(2, minmax(180px, 235px));
   grid-template-rows: repeat(4, min-content);
   gap: 12px 10px;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
 
   &--office {
     grid-template-columns: 1fr;
+  }
+
+  &--nav {
+    li {
+      @include vp-1024 {
+        &:nth-of-type(2n) {
+          order: 2;
+        }
+      }
+    }
   }
 
   @include vp-1024 {
@@ -116,25 +134,7 @@
     @media (hover: hover), screen and (min-width: $vp-1024) {
       &:hover,
       &:focus {
-        &::before,
-        &::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          border: 2px solid $color-light-blue;
-        }
-
-        &::after {
-          left: -18px;
-        }
-
-        &::before {
-          right: -18px;
-        }
+        text-decoration: underline;
       }
     }
 

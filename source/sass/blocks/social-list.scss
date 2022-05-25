@@ -5,17 +5,30 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 15px;
-  gap: 0 25px;
+  margin: -3px 0 0 3px;
 
   @include vp-1024 {
-    padding: 0;
+    margin: -7px -12px 0 0;
     justify-content: flex-end;
   }
+
+  @include vp-768 {
+    margin: -7px 0 0 2px;
+    justify-content: center;
+  }
+}
+
+.social-list__item {
+  padding: 0 15px;
+  margin: 0 -7.5px;
 }
 
 .social-list__link {
   transition: opacity 0.3s ease 0s, fill 0.3s ease 0s;
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  padding: 5px;
 
   @media (hover: hover), screen and (min-width: $vp-1024) {
     &:hover,
