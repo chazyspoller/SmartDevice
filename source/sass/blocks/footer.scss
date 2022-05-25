@@ -3,7 +3,7 @@
   padding: 50px 0 55px;
 
   @include vp-1024 {
-    padding: 50px 0 65px;
+    padding: 50px 0 60px;
   }
 
   @include vp-768 {
@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 22px 0;
+    gap: 0;
     align-items: center;
   }
 }
@@ -36,6 +36,10 @@
   img {
     width: 215px;
     height: 55px;
+  }
+
+  @include vp-768 {
+    margin-bottom: 22px;
   }
 }
 

@@ -1246,7 +1246,7 @@ body main {
 }
 
 .services {
-  padding: 65px 0 140px;
+  padding: 65px 0 120px;
   background-color: #041827;
 }
 
@@ -1271,7 +1271,6 @@ body main {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  gap: 30px 6.95%;
 }
 
 .services__item {
@@ -1279,6 +1278,11 @@ body main {
   -ms-flex: 0 1 28.7%;
   flex: 0 1 28.7%;
   overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.services__item:not(:nth-of-type(3n)) {
+  margin-right: 6.9%;
 }
 
 .services__link {
@@ -1676,7 +1680,7 @@ body main {
   }
 
   .footer {
-    padding: 50px 0 65px;
+    padding: 50px 0 60px;
   }
 
   .footer__wrapper {
@@ -1739,11 +1743,12 @@ body main {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    gap: 9px;
+    gap: 0;
   }
 
   .footer-links__links li {
     font: 400 1em/1.3em "PT Mono", "Arial", sans-serif;
+    margin-bottom: 9px;
   }
 
   .social-list {
@@ -1831,13 +1836,21 @@ body main {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: 30px;
   }
 
   .services__item {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
+    margin-bottom: 0;
+  }
+
+  .services__item:not(:nth-of-type(3n)) {
+    margin-right: 0;
+  }
+
+  .services__item:not(:last-of-type) {
+    margin-bottom: 30px;
   }
 
   .services__link {
@@ -1929,10 +1942,14 @@ body main {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    gap: 22px 0;
+    gap: 0;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+  }
+
+  .footer__logo {
+    margin-bottom: 22px;
   }
 
   .footer__footer-nav {
@@ -2037,15 +2054,17 @@ body main {
     opacity: 1;
   }
 
+  .footer-links__links--office li:first-of-type {
+    margin-bottom: 15px;
+  }
+
   .footer-links__links {
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-    margin-bottom: 8px;
     -webkit-transform: translateY(-8px);
     -ms-transform: translateY(-8px);
     transform: translateY(-8px);
-    gap: 10px;
   }
 
   .footer-links__links li {
@@ -2056,12 +2075,8 @@ body main {
     line-height: 1em;
   }
 
-  .footer-links__address {
-    margin-bottom: 5px;
-  }
-
   .social-list {
-    margin: -7px 0 0 2px;
+    margin: -7px 0 22px 2px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
